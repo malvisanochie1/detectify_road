@@ -9,7 +9,8 @@
       "Bash(python -m pip --version)",
       "Bash(python -m pip list)",
       "Bash(python *)",
-      "Bash(tasklist)"
+      "Bash(tasklist)",
+      "Bash(git *)"
     ]
   }
 }

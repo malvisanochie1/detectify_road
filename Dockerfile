@@ -18,7 +18,6 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 COPY app.py .
-COPY yolov8n.pt .
 
 # Run as non-root (important for security)
 RUN useradd -m appuser && chown -R appuser /app
