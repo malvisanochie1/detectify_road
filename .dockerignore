@@ -1,4 +1,24 @@
-# Python
+# ---------------------------------------------------------------------------
+# Docker build context ignore list
+# Keep this in sync with .gitignore where it makes sense.
+# Goal: copy ONLY what the image needs (app.py, requirements.txt, yolov8n.pt).
+# ---------------------------------------------------------------------------
+
+# --- Version control / CI ---------------------------------------------------
+.git
+.github
+.gitignore
+.gitattributes
+
+# --- Editor / IDE -----------------------------------------------------------
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+.claude
+
+# --- Python -----------------------------------------------------------------
 __pycache__
 *.pyc
 *.pyo
@@ -10,26 +30,41 @@ __pycache__
 .coverage
 coverage.xml
 .ruff_cache
+.mypy_cache
 *.egg-info
 dist
 build
 
-# Development
+# --- Virtual environments ---------------------------------------------------
 .env
 .venv
 env/
 venv/
 ENV/
-.idea
-.vscode
-*.swp
-*.swo
-.DS_Store
 
-# Project specific
+# --- Node (not used, but keep to match repo convention) ---------------------
+node_modules/
+
+# --- Docs / tests / examples (not required at runtime) ----------------------
+docs/
+tests/
+examples/
+docker/
+mkdocs.yml
+CITATION.cff
+CONTRIBUTING.md
+README.md
+README.zh-CN.md
+pyproject.toml.bak
+
+# --- Upstream ultralytics source (installed from PyPI instead) --------------
+ultralytics/
+
+# --- Logs / run artefacts ---------------------------------------------------
 *.log
 benchmarks.log
 runs/
 
-# Dependencies
-node_modules/
+# --- Docker (don't ship the Dockerfile/.dockerignore into the image) --------
+Dockerfile
+.dockerignore
