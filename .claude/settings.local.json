@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(echo \"DONE: $?\")",
+      "Bash(pip --version)",
+      "Bash(pip list *)",
+      "Bash(python -m pip --version)",
+      "Bash(python -m pip list)",
+      "Bash(python *)",
+      "Bash(tasklist)"
+    ]
+  }
+}
