@@ -22,6 +22,12 @@ def load_model():
 
 model = load_model()
 
+def show_image(img, caption):
+    try:
+        st.image(img, caption=caption, use_container_width=True)
+    except TypeError:
+        st.image(img, caption=caption, use_column_width=True)
+
 uploaded_file = st.file_uploader(
     "Upload an image",
     type=["jpg", "jpeg", "png"]
@@ -29,7 +35,7 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    show_image(image, "Uploaded Image")
 
     img_array = np.array(image)
 
@@ -38,7 +44,7 @@ if uploaded_file is not None:
     annotated_frame = results[0].plot()
     annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
 
-    st.image(annotated_frame, caption="Detected Objects", use_container_width=True)
+    show_image(annotated_frame, "Detected Objects")
 
     # --- Detection Summary ---
     boxes = results[0].boxes
