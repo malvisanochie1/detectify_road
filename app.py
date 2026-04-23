@@ -24,7 +24,7 @@ model = load_model()
 
 def show_image(img, caption):
     try:
-        st.image(img, caption=caption, use_container_width=True)
+        st.image(annotated_frame, caption="Detected Objects")
     except TypeError:
         st.image(img, caption=caption, use_column_width=True)
 
